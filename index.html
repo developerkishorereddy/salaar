@@ -1,0 +1,64 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salaar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card" id="s-card">
+        <div class="wrapper">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/ce91f0174694883.64a6b352166cc.jpg" class="cover-image" />
+        </div>
+        <img src="./stitlemain-removebg-preview.png" class="title" />
+        <img src="./salaar3-removebg-preview.png" class="character" />
+    </div>
+    <script>
+      const card = document.getElementById('s-card');
+      const title = card.querySelector('.title');
+      const character = card.querySelector('.character');
+      const wrapper = card.querySelector('.wrapper');
+
+      function applyCardHoverEffect() {
+            const perspectiveValue = "perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0)";
+            wrapper.style.transform = perspectiveValue;
+      }
+
+      function removeCardHoverEffect() {
+            wrapper.style.transform = "";
+            card.style.boxShadow = "";
+            card.style.webkitBoxShadow = "";
+            card.style.mozBoxShadow = "";
+        }
+
+      function applyHoverEffect() {
+          title.style.transform = "translate3d(0%, -50px, 100px)";
+          character.style.opacity = 1;
+          character.style.transform = "translate3d(0%, -30%, 100px)";
+      }
+      
+      function removeHoverEffect() {
+          title.style.transform = "";
+          character.style.opacity = 0;
+          character.style.transform = "";
+      }
+      
+      card.addEventListener('touchstart', () => {
+          applyCardHoverEffect();
+          applyHoverEffect();
+      });
+      card.addEventListener('touchend', () => {
+          removeCardHoverEffect();
+          removeHoverEffect();
+      });
+
+      card.addEventListener('mouseenter', () => {
+          applyCardHoverEffect();
+          applyHoverEffect();
+      });
+      card.addEventListener('mouseleave', () => {
+          removeCardHoverEffect();
+          removeHoverEffect();
+      });
+  </script>
+</body>
+</html>
